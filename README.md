@@ -162,7 +162,7 @@ filetree
 <!-- links -->
 [your-project-path]:DRL-CASIA/Planning
 [contributors-shield]: https://img.shields.io/github/contributors/DRL-CASIA/Planning.svg?style=flat-square
-[contributors-url]: https://github.com/DRL-CASIA/RoboRTS-Planning/graphs/contributors
+[contributors-url]: https://github.com/DRL-CASIA/Planning/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/DRL-CASIA/Planning.svg?style=flat-square
 [forks-url]: https://github.com/DRL-CASIA/Planning/network/members
 [stars-shield]: https://img.shields.io/github/stars/DRL-CASIA/Planning.svg?style=flat-square
