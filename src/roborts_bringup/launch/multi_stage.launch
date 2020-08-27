@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="map" value="icra2019"/>
+  <master auto="start"/>
+  <param name="/use_sim_time" value="true"/>
+
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find roborts_bringup)/maps/$(arg map).yaml" respawn="false"  />
+
+  <!-- Run the stage simulator -->
+  <node pkg="stage_ros" type="stageros" name="stageros" args="$(find roborts_bringup)/worlds/$(arg map).world" respawn="false" >
+    <!--remap from="base_scan" to="scan" /-->
+    <param name="base_watchdog_timeout" value="0.01" />
+    
+  </node>
+
+
+  <!-- Run the rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find roborts_bringup)/rviz/multi_roborts.rviz" />
+
+  
+  <group ns="robot_0">
+    <param name="tf_prefix" value="robot_0" />
+     <!--Load parameters for localization node  -->
+    <rosparam command="load" file="$(find roborts_localization)/config/localization-robot_0.yaml" />
+    <rosparam command="load" file="$(find roborts_localization)/amcl/config/amcl.yaml" />
+
+
+    <!-- Run the Localization Node -->
+    <node pkg="roborts_localization" type="localization_node" name="localization_node" respawn="false" >
+        <param name="initial_pose_x" type="double" value="7.5" />
+        <param name="initial_pose_y" type="double" value="4.5" />
+        <param name="initial_pose_a" type="double" value="-1.57" />
+    </node>
+
+    <!-- Laser Detection Node -->
+     <node pkg="laser_detection" type="laser_detection_node" name="laser_detection_node" respawn="false"  />
+
+    <!-- Run the Global Planner Node -->
+    <node pkg="roborts_planning" type="global_planner_node" name="global_planner_node" respawn="false" />
+
+    <!-- Run the Local Planner Node -->
+    <node pkg="roborts_planning" type="local_planner_node" name="local_planner_node" respawn="false" />
+
+    <!-- Run the velocity converter node -->
+    <node pkg="roborts_planning" type="vel_converter" name="vel_converter_node" respawn="false" />
+
+    <!-- Run the simulation node-->
+    <node pkg="roborts_decision" type="blue_master" name="blue_master" respawn="false" output="screen" />
+   
+  </group>
+
+
+  <group ns="robot_1">
+    <param name="tf_prefix" value="robot_1" />
+
+     <!--Load parameters for localization node  -->
+    <rosparam command="load" file="$(find roborts_localization)/config/localization-robot_1.yaml" />
+    <rosparam command="load" file="$(find roborts_localization)/amcl/config/amcl.yaml" />
+
+
+    <!-- Run the Localization Node -->
+    <node pkg="roborts_localization" type="localization_node" name="localization_node" respawn="false">
+      <param name="initial_pose_x" type="double" value="0.5" />
+      <param name="initial_pose_y" type="double" value="4.5" />
+      <param name="initial_pose_a" type="double" value="-1.57" />
+    </node>
+
+    <!-- Laser Detection Node -->
+    <node pkg="laser_detection" type="laser_detection_node" name="laser_detection_node" respawn="false" />
+ 
+
+    <!-- Run the Global Planner Node -->
+    <node pkg="roborts_planning" type="global_planner_node" name="global_planner_node" respawn="false" />
+
+    <!-- Run the Local Planner Node -->
+    <node pkg="roborts_planning" type="local_planner_node" name="local_planner_node" respawn="false" />
+
+    <!-- Run the velocity converter node -->
+    <node pkg="roborts_planning" type="vel_converter" name="vel_converter_node" respawn="false" />  
+
+    <!-- Run the simulation node-->
+    <node pkg="roborts_decision" type="blue_wing" name="blue_wing" respawn="false" />
+   
+  </group>
+
+
+
+
+  
+
+
+</launch>

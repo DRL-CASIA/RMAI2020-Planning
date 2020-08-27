@@ -1,0 +1,560 @@
+use_camera: false
+master: false
+isblue: true
+usewifi: true
+master_ip: "tcp://127.0.0.1:1111"
+remain_bullet: 40
+strategy: "go_buff"  # "go_buff", "no_go_buff", "togher"
+can_shoot: true
+can_dodge: true
+dodge_in_reload: false
+shoot_hz: 7
+use_refree: false
+
+
+blue {
+	master_bot {
+	  start_position {
+		x: 7.65 # 
+		y: 4.66 # 
+		z: 0
+
+		roll:  0
+		pitch: 0
+		yaw:   -1.57 # 
+	  }
+	}
+
+	wing_bot {
+	  start_position {
+		x: 0.65 # 
+		y: 4.66 # 
+		z: 0
+
+		roll:  0
+		pitch: 0
+		yaw:   -1.57 
+	  }
+	}
+	
+	reload_point{
+		x: 4.0
+		y: 0.72
+		z: 0.0
+		
+		roll:  0
+		pitch: 0
+		yaw:   1.57
+	}
+	
+	shield_point{
+		x: 1.69
+		y: 3.28
+		z: 0.0
+		
+		roll:  0
+		pitch: 0
+		yaw:   -0.75
+	}
+        
+        # blue left opp reload
+        patrol{
+	  x: 3.03
+	  y: 4.52
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: -1.57
+        }
+        
+        # blue right opp reload
+        patrol{
+           x: 5.65
+	   y: 4.45
+	   z: 0
+	  
+	   roll: 0
+	   pitch: 0
+	   yaw: -1.57
+               
+        }
+
+	# blue left center opp reload
+        patrol{
+          x: 2.69
+	  y: 3.21
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: -1.57
+        }
+
+        # blue center up opp reload
+        patrol{
+          x: 4.1
+	  y: 3.28
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: 3.14
+        }
+
+	
+
+        # blue right center opp reload
+        patrol{
+          x: 5.62
+	  y: 3.38
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: -1.57    
+        }
+	
+        # blue left center my reload
+        patrol{
+          x: 2.65
+	  y: 1.66
+	  z: 0
+
+	  roll:  0
+	  pitch: 0
+	  yaw:   1.57
+        }
+
+        # blue center up my reload
+        patrol{
+          x: 4.24
+	  y: 1.79
+	  z: 0
+
+	  roll:  0
+	  pitch: 0
+	  yaw:   0
+        }
+
+        # blue right up my reload
+        patrol{
+          x: 5.48
+	  y: 1.79
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: 1.57
+          
+        }
+
+        # blue left my reload
+        patrol{
+           x: 2.65
+  	   y: 0.62
+  	   z: 0
+
+  	   roll:  0
+  	   pitch: 0
+  	   yaw:   1.57
+        }
+
+
+        # blue right my reload
+        patrol{
+          x: 5.34
+  	  y: 0.48
+	  z: 0
+
+	  roll:  0
+	  pitch: 0
+	  yaw:   1.57
+        }
+	
+}
+
+
+
+red {
+	master_bot {
+	  start_position {
+		x: 0.72 # 
+		y: 0.78 # 
+		z: 0
+
+		roll:  0
+		pitch: 0
+		yaw:   1.57 # 
+	  }
+	}
+
+	wing_bot {
+	  start_position {
+		x: 7.72 # 
+		y: 0.42 # 
+		z: 0
+
+		roll:  0
+		pitch: 0
+		yaw:   1.57 
+	  }
+	}
+	
+	reload_point{
+		x: 4.0
+		y: 4.28
+		z: 0.0
+		
+		roll:  0
+		pitch: 0
+		yaw:   -1.57
+	}
+	
+	shield_point{
+		x: 6.31
+		y: 1.72
+		z: 0.0
+		
+		roll:  0
+		pitch: 0
+		yaw:   2.39
+	}
+
+
+
+        # red left opp reload
+        patrol{
+           x: 2.65
+  	   y: 0.62
+  	   z: 0
+
+  	   roll:  0
+  	   pitch: 0
+  	   yaw:   1.57
+        }
+        
+        # red right opp reload
+        patrol{
+          x: 5.34
+  	  y: 0.48
+	  z: 0
+
+	  roll:  0
+	  pitch: 0
+	  yaw:   1.57
+
+        }
+
+	# red left center opp reload
+        patrol{
+          x: 2.65
+	  y: 1.66
+	  z: 0
+
+	  roll:  0
+	  pitch: 0
+	  yaw:   1.57
+
+        }
+
+        # red center up opp reload
+        patrol{
+          x: 4.24
+	  y: 1.79
+	  z: 0
+
+	  roll:  0
+	  pitch: 0
+	  yaw:   0
+        }
+
+
+        # red right center opp reload
+        patrol{
+          x: 5.48
+	  y: 1.79
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: 1.57
+
+        }
+	
+        # red left center my reload
+        patrol{
+          x: 2.69
+	  y: 3.21
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: -1.57
+
+        }
+
+        # red center up my reload
+        patrol{
+          x: 4.1
+	  y: 3.28
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: 3.14
+
+        }
+
+        # red right up my reload
+        patrol{
+          x: 5.62
+	  y: 3.38
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: -1.57
+
+        }
+
+        # red left my reload
+        patrol{
+          x: 3.03
+	  y: 4.52
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: -1.57
+
+        }
+
+
+        # red right my reload
+        patrol{
+          x: 5.65
+	  y: 4.45
+	  z: 0
+	  
+	  roll: 0
+	  pitch: 0
+	  yaw: -1.57
+
+        }
+	
+	
+}
+
+
+
+
+escape {
+  left_x_limit: 2.5
+  right_x_limit: 5.5
+  robot_x_limit: 4
+  left_random_min_x: 0
+  left_random_max_x: 2.5
+  right_random_min_x: 5.5
+  right_random_max_x: 8
+}
+
+
+search_limit {
+  x_limit: 4.2
+  y_limit: 2.75
+}
+
+whirl_vel {
+  angle_x_vel: 0
+  angle_y_vel: 0
+  angle_z_vel: 1
+}
+
+
+search_region_1 {
+  x: 0.75
+  y: 0.75
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   1.57
+}
+
+search_region_1 {
+  x: 0.75
+  y: 3.0
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   0
+}
+
+search_region_1 {
+  x: 4.0
+  y: 3.3
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   0
+}
+
+search_region_1 {
+  x: 7.25
+  y: 4.25
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   -1.57
+}
+
+search_region_1 {
+  x: 7.25
+  y: 2.0
+  z: 0.0
+  
+  roll: 0
+  pitch: 0
+  yaw: 3.14
+}
+
+search_region_1 {
+  x: 4.0
+  y: 1.7
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   3.14
+}
+
+
+search_region_2 {
+  x: 3.03
+  y: 4.59
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   3.14
+}
+
+search_region_2 {
+  x: 0.82
+  y: 4.59
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   -1.57
+}
+
+search_region_2 {
+  x: 0.65
+  y: 3.17
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   0
+}
+
+search_region_2 {
+  x: 3.10
+  y: 3.42
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   0
+}
+
+search_region_3 {
+  x: 5.79
+  y: 4.45
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   0
+}
+
+search_region_3 {
+  x: 7.55
+  y: 4.52
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   -1.57
+}
+
+search_region_3 {
+  x: 7.38
+  y: 1.9
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   -3.14
+}
+
+search_region_3 {
+  x: 5.58
+  y: 1.97
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   1.57
+}
+
+search_region_4 {
+  x: 5.38
+  y: 0.45
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   0
+}
+
+search_region_4 {
+  x: 7.51
+  y: 0.55
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   1.57
+}
+
+search_region_4 {
+  x: 7.45
+  y: 1.86
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   3.14
+}
+
+
+search_region_4 {
+  x: 5.45
+  y: 1.9
+  z: 0
+
+  roll:  0
+  pitch: 0
+  yaw:   3.14
+}
+
+
+
+
+

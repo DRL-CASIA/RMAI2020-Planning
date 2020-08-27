@@ -1,0 +1,57 @@
+<launch>
+  <master auto="start"/>
+  <arg name="map" value="icra2019"/>
+
+  <!--Load parameters for localization node  -->
+  <rosparam command="load" file="$(find roborts_localization)/config/localization.yaml" />
+  <rosparam command="load" file="$(find roborts_localization)/amcl/config/amcl.yaml" />
+
+  <!-- Run the robot sdk interface -->
+  <include file="$(find roborts_bringup)/launch/base.launch" />
+
+  <!-- Publish static tf -->
+  <include file="$(find roborts_bringup)/launch/static_tf.launch" />
+
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find roborts_bringup)/maps/$(arg map).yaml" respawn="false" />
+
+  <!-- Run the lidar node -->
+  <node name="rplidarNode" pkg="rplidar_ros" type="rplidarNode">
+      <param name="serial_port" type="string" value="/dev/ttyUSB0"/>
+      <param name="serial_baudrate" type="int" value="256000"/>
+      <param name="frame_id" type="string" value="base_laser_link"/>
+      <param name="inverted" type="bool" value="false"/>
+      <param name="angle_compensate" type="bool" value="true"/>
+      <param name="scan_mode" type="string" value="Sensitivity"/>
+  </node>
+  <node name="base2laser" pkg="tf" type="static_transform_publisher" args="0.16 0 0.0 0 0 0 /base_link /base_laser_link 100"/>
+  
+
+  <!-- Run the localization node -->
+  <node pkg="roborts_localization" type="localization_node" name="localization_node" respawn="false" />
+
+  <!-- Run the global planner node -->
+  <node pkg="roborts_planning" type="global_planner_node" name="global_planner_node" respawn="false" output="screen" />
+
+  <!-- Run the local planner node -->
+  <node pkg="roborts_planning" type="local_planner_node" name="local_planner_node" respawn="false" output="screen" />
+
+    <!-- camera node -->
+  <node pkg="roborts_camera" type="roborts_camera_node" name="roborts_camera_node" respawn="false" />
+	
+  <!-- Armor detection node  -->
+  <node pkg="roborts_detection" type="armor_detection_node" name="armor_detection_node" respawn="false" />
+
+
+  <!-- Enemies detection node -->
+  <node pkg="laser_detection" type="laser_detection_node" name="laser_detection_node" respawn="false" />
+
+
+
+   <!-- Python Shooter node -->
+   <node pkg="gimbal_controller" type="shooter_control.py" name="" respawn="false" />
+
+  
+
+</launch>
+

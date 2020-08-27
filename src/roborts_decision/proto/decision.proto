@@ -1,0 +1,73 @@
+syntax = "proto2";
+package roborts_decision;
+
+message Point {
+    optional float x = 1;
+    optional float y = 2;
+    optional float z = 3;
+
+    optional float roll  = 4;
+    optional float pitch = 5;
+    optional float yaw   = 6;
+}
+
+message EscapeConstraint {
+    optional float left_x_limit = 1;
+    optional float right_x_limit = 2;
+    optional float robot_x_limit = 3;
+    optional float left_random_min_x = 4;
+    optional float left_random_max_x = 5;
+    optional float right_random_min_x = 6;
+    optional float right_random_max_x = 7;
+}
+
+message SearchConstraint {
+  optional float x_limit = 1;
+  optional float y_limit = 2;
+}
+
+message WhirlVel {
+  optional float angle_x_vel = 1;
+  optional float angle_y_vel = 2;
+  optional float angle_z_vel = 3;
+}
+
+message MultiRobot {
+  optional Point start_position = 7;
+}
+
+message BlueOrRedGroup{
+  optional MultiRobot master_bot = 1;
+  optional MultiRobot wing_bot = 2;
+  optional Point reload_point = 3;
+  optional Point shield_point = 4;
+  repeated Point patrol = 5;
+  
+}
+
+
+message DecisionConfig {
+    optional string strategy = 1;
+    optional bool use_camera = 2;
+    optional bool master = 3 [default = false];
+    optional bool isblue = 4 [default = true]; 
+    optional bool usewifi = 5;
+    optional string master_ip = 6; 
+    optional int32 remain_bullet = 7;
+    optional EscapeConstraint escape = 8;
+    optional BlueOrRedGroup  blue = 9;
+    optional BlueOrRedGroup  red = 10;
+    optional SearchConstraint search_limit = 11;
+    optional WhirlVel whirl_vel = 12;
+	
+    repeated Point search_region_1 = 13;
+    repeated Point search_region_2 = 14;
+    repeated Point search_region_3 = 15;
+    repeated Point search_region_4 = 16;
+    optional bool can_shoot = 17;
+    optional bool can_dodge = 18;
+    optional bool dodge_in_reload = 19;
+    optional int32 shoot_hz = 20;
+    optional bool use_refree = 21;
+}
+

@@ -1,0 +1,9 @@
+uint8 num_armor
+float32[] armor_0
+float32[] armor_1
+uint8[] id
+uint8[] state
+float32[] robot_A
+float32[] robot_B
+float32[] pose_A
+float32[] pose_B

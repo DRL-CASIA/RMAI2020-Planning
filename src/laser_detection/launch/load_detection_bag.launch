@@ -1,0 +1,5 @@
+<launch>
+    <param name="/use_sim_time" value="true" />
+    <node name="playbag" pkg="rosbag" type="play"
+          args="--clock -l /home/drl/bagfiles/camera_detection.bag" />
+</launch>
