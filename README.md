@@ -166,7 +166,7 @@
 
 ### **依赖工具及环境**
 1. NVIDIA JETSON XAVIER计算平台
-2. Ubuntu 18.04
+2. Ubuntu 16.04
 3. Ros kinetic平台
 4. 安装ROS所需第三方依赖包，以及‘SuitSparse’，‘Glog’，‘protbuf’等其他依赖。
 ```bash
