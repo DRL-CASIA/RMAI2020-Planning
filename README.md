@@ -15,7 +15,7 @@
     <img src="images/logo.png" alt="Logo" width="200" height="190">
   </a>
 
-  <h3 align="center">中国科学科院自动化研究所--Team Neurons</h3>
+  <h3 align="center">中国科学院自动化研究所--Team Neurons</h3>
   <p align="center">
     Time to start！
     <!-- <br />
