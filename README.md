@@ -166,26 +166,25 @@
 
 ### **依赖工具及环境**
 1. NVIDIA JETSON XAVIER计算平台
-2. Ubuntu 16.04
-3. Ros kinetic平台
+2. Ubuntu 18.04
+3. Ros melodic平台
 4. 安装ROS所需第三方依赖包，以及‘SuitSparse’，‘Glog’，‘protbuf’等其他依赖。
 ```bash
-sudo apt-get install -y ros-kinetic-opencv3             \
-                        ros-kinetic-cv-bridge           \
-                        ros-kinetic-image-transport     \
-                        ros-kinetic-stage-ros           \
-                        ros-kinetic-map-server          \
-                        ros-kinetic-laser-geometry      \
-                        ros-kinetic-interactive-markers \
-                        ros-kinetic-tf                  \
-                        ros-kinetic-pcl-*               \
-                        ros-kinetic-libg2o              \
-                        ros-kinetic-rplidar-ros         \
-                        ros-kinetic-rviz                \
-                        protobuf-compiler               \
-                        libprotobuf-dev                 \
-                        libsuitesparse-dev              \
-                        libgoogle-glog-dev              \
+sudo apt-get install -y ros-melodic-cv-bridge                \
+						                         ros-melodic-image-transport          \
+						                         ros-melodic-stage-ros                         \
+																		 ros-melodic-map-server                    \
+						                         ros-melodic-laser-geometry            \
+						                         ros-melodic-interactive-markers   \
+						                         ros-melodic-tf                                         \
+						                         ros-melodic-pcl-*                                  \
+						                         ros-melodic-libg2o                               \
+						                         ros-melodic-rplidar-ros                      \
+						                         ros-melodic-rviz                                    \
+                                     protobuf-compiler                                \
+                                     libprotobuf-dev                                      \
+                                     libsuitesparse-dev                                \
+                                     libgoogle-glog-dev                               \
 ```
 其它软件
 - cmake
